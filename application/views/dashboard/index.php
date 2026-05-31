@@ -159,15 +159,10 @@
         <div class="col-lg-7 mb-4">
             <div class="card shadow h-100">
                 <div class="card-header py-3 bg-white">
-                    <h6 class="m-0 font-weight-bold text-primary">Tentang Sistem</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Grafik Penjualan Bulanan</h6>
                 </div>
                 <div class="card-body">
-                    <h5 class="font-weight-bold">Sistem Sales Order PT Maju Jaya</h5>
-                    <p class="mb-0">
-                        Aplikasi ini digunakan untuk membantu proses pencatatan pesanan pelanggan,
-                        pengelolaan produk, data pelanggan, data sales, transaksi sales order,
-                        serta pembuatan laporan penjualan.
-                    </p>
+                    <canvas id="monthlyChart"></canvas>
                 </div>
             </div>
         </div>
@@ -178,31 +173,37 @@
                     <h6 class="m-0 font-weight-bold text-primary">Produk Terlaris</h6>
                 </div>
 
-                <div class="card-body">
+              <div class="card-body">
 
-                    <?php if(!empty($produk_terlaris)): ?>
+                <?php if(!empty($produk_terlaris)): ?>
 
-                        <?php foreach($produk_terlaris as $p): ?>
+                    <?php foreach($produk_terlaris as $p): ?>
 
-                            <div class="mb-3 d-flex justify-content-between align-items-center">
-                                <span><?= $p->nama_produk; ?></span>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
 
-                                <span class="badge badge-info px-3 py-2">
-                                    <?= $p->total_terjual; ?> Terjual
+                            <div style="max-width: 70%;">
+                                <span class="font-weight-bold text-gray-800">
+                                    <?= $p->nama_produk; ?>
                                 </span>
                             </div>
 
-                        <?php endforeach; ?>
+                            <span class="badge badge-info px-3 py-2">
+                                <?= $p->total_terjual; ?> Terjual
+                            </span>
 
-                    <?php else: ?>
+                        </div>
 
-                        <p class="text-muted mb-0">
-                            Belum ada data penjualan produk.
-                        </p>
+                    <?php endforeach; ?>
 
-                    <?php endif; ?>
+                <?php else: ?>
 
-                </div>
+                    <p class="text-muted mb-0">
+                        Belum ada data penjualan produk.
+                    </p>
+
+                <?php endif; ?>
+
+            </div>
             </div>
         </div>
 
@@ -232,6 +233,34 @@ new Chart(ctx, {
                 '#f6c23e'
             ],
             borderRadius: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+const monthlyCtx = document.getElementById('monthlyChart');
+
+new Chart(monthlyCtx, {
+    type: 'line',
+    data: {
+        labels: <?= json_encode($label_bulan); ?>,
+        datasets: [{
+            label: 'Total Penjualan',
+            data: <?= json_encode($total_bulanan); ?>,
+            borderColor: '#00bcd4',
+            backgroundColor: 'rgba(0,188,212,0.15)',
+            tension: 0.4,
+            fill: true,
+            pointRadius: 5
         }]
     },
     options: {

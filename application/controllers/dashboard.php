@@ -31,6 +31,29 @@ class Dashboard extends CI_Controller {
             ->get()
             ->result();
 
+        $penjualan_bulanan = $this->db
+            ->select('MONTH(tanggal) as bulan, SUM(total) as total')
+            ->from('orders')
+            ->where('status !=', 'dibatalkan')
+            ->group_by('MONTH(tanggal)')
+            ->order_by('MONTH(tanggal)', 'ASC')
+            ->get()
+            ->result();
+
+        $bulan = [
+            1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr',
+            5 => 'Mei', 6 => 'Jun', 7 => 'Jul', 8 => 'Agu',
+            9 => 'Sep', 10 => 'Okt', 11 => 'Nov', 12 => 'Des'
+        ];
+
+        $data['label_bulan'] = [];
+        $data['total_bulanan'] = [];
+
+        foreach($penjualan_bulanan as $p){
+            $data['label_bulan'][] = $bulan[$p->bulan];
+            $data['total_bulanan'][] = $p->total;
+        }
+        
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
