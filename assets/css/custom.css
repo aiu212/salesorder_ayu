@@ -1,0 +1,240 @@
+/* GLOBAL */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #eef2f7, #dde5ef);
+}
+
+#content-wrapper {
+    background: #f1f5f9;
+}
+
+#content {
+    width: 100%;
+    padding-top: 0;
+    background: linear-gradient(to bottom right, #f4f7fb, #e8eef6);
+}
+
+.container-fluid {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+}
+
+/* SIDEBAR */
+.bg-gradient-primary {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
+}
+
+.sidebar .sidebar-brand {
+    background: #020617;
+    letter-spacing: 1px;
+}
+
+.sidebar .sidebar-brand::before {
+    content: "\f2db";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+    color: #00bcd4;
+}
+
+.sidebar .nav-item .nav-link {
+    color: #cbd5e1 !important;
+}
+
+.sidebar .nav-item .nav-link:hover {
+    color: #22d3ee !important;
+    background: rgba(0,188,212,0.15);
+    border-left: 3px solid #00bcd4;
+    transition: 0.2s;
+}
+
+/* TOPBAR */
+.topbar {
+    background: linear-gradient(90deg, #07132b, #0f274f) !important;
+    border-bottom: 2px solid #00bcd4;
+}
+
+.topbar .text-muted {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+.topbar .font-weight-bold {
+    color: white !important;
+}
+
+.topbar .dropdown-toggle::after {
+    color: white;
+}
+
+.topbar .img-profile {
+    border: 2px solid #00bcd4;
+    padding: 2px;
+    background: white;
+}
+
+/* TITLE */
+.page-title {
+    color: #0f274f;
+    font-weight: bold;
+}
+
+.page-subtitle {
+    color: #5c677d;
+}
+
+/* CARD */
+.card {
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    overflow: visible !important;
+}
+
+.card-header {
+    background: #ffffff !important;
+}
+
+#chartDashboard{
+    height: 320px !important;
+}
+
+/* BUTTON */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: #0891b2 !important;
+    border-color: #0891b2 !important;
+}
+
+.btn-primary:hover {
+    background: #0e7490 !important;
+    border-color: #0e7490 !important;
+}
+
+.btn-info {
+    background: #22d3ee !important;
+    border-color: #22d3ee !important;
+    color: #0f172a !important;
+}
+
+/* BADGE */
+.badge {
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+/* TABLE */
+.table-responsive {
+    overflow: visible !important;
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: visible !important;
+}
+
+.table thead th {
+    background: #07132b !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    border: none;
+    padding: 16px;
+    font-size: 14px;
+}
+
+.table tbody tr {
+    background: #fff;
+    transition: .2s;
+}
+
+.table tbody tr:hover {
+    background: #f1f7ff;
+}
+
+.table tbody td {
+    padding: 18px 16px;
+    border-top: 1px solid #edf2f7;
+    vertical-align: middle !important;
+}
+
+.table td,
+.table th {
+    vertical-align: middle !important;
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    z-index: 99999 !important;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(15,23,42,0.18);
+    padding: 8px;
+}
+
+.dropdown-item {
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-weight: 500;
+}
+
+.dropdown-item:hover {
+    background: #f1f5f9;
+}
+
+/* BORDER COLORS */
+.border-left-primary {
+    border-left: .35rem solid #0891b2 !important;
+}
+
+.border-left-success {
+    border-left: .35rem solid #10b981 !important;
+}
+
+.border-left-info {
+    border-left: .35rem solid #22d3ee !important;
+}
+
+.border-left-warning {
+    border-left: .35rem solid #f59e0b !important;
+}
+
+.border-left-danger {
+    border-left: .35rem solid #ef4444 !important;
+}
+
+.border-left-secondary {
+    border-left: .35rem solid #64748b !important;
+}
+
+.badge{
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-info{
+    background: #22d3ee;
+    color: #07132b;
+}
+
+.badge-success{
+    background: #10b981;
+}
+
+.badge-warning{
+    background: #f59e0b;
+    color: white;
+}
+
+.badge-danger{
+    background: #ef4444;
+}
