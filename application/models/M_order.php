@@ -10,6 +10,12 @@ class M_order extends CI_Model {
         $this->db->join('pelanggan', 'pelanggan.id = orders.pelanggan_id');
         $this->db->join('sales', 'sales.id = orders.sales_id');
 
+        if($this->session->userdata('role') == 'sales'){
+            $this->db->where('orders.created_by', $this->session->userdata('id_user'));
+        }
+
+        $this->db->order_by('orders.id', 'DESC');
+
         return $this->db->get()->result();
     }
 

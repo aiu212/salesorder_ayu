@@ -7,6 +7,7 @@
         body {
             font-family: Arial, sans-serif;
             font-size: 12px;
+            padding: 20px;
         }
 
         h2, h4 {
@@ -14,13 +15,21 @@
             margin: 0;
         }
 
+        .judul-kanan {
+            text-align: right;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
         .info {
             text-align: center;
-            margin-bottom: 20px;
+            margin-top: 10px;
+            margin-bottom: 25px;
         }
 
         table {
-            width: 100%;
+            width: 95%;
+            margin: auto;
             border-collapse: collapse;
             margin-top: 15px;
         }
@@ -67,9 +76,11 @@
         </thead>
 
         <tbody>
+
             <?php 
             $no = 1; 
             $grand_total = 0;
+
             foreach($laporan as $l): 
                 $grand_total += $l->total;
             ?>
@@ -81,15 +92,23 @@
                 <td><?= $l->nama_pelanggan; ?></td>
                 <td><?= $l->nama_sales; ?></td>
                 <td><?= ucfirst($l->status); ?></td>
-                <td>Rp <?= number_format($l->total,0,',','.'); ?></td>
+                <td>
+                    Rp <?= number_format($l->total,0,',','.'); ?>
+                </td>
             </tr>
 
             <?php endforeach; ?>
 
             <tr>
-                <td colspan="6" class="total">Grand Total</td>
-                <td class="total">Rp <?= number_format($grand_total,0,',','.'); ?></td>
+                <td colspan="6" class="total">
+                    Grand Total
+                </td>
+
+                <td class="total">
+                    Rp <?= number_format($grand_total,0,',','.'); ?>
+                </td>
             </tr>
+
         </tbody>
     </table>
 
