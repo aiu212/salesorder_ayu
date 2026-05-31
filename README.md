@@ -36,3 +36,7 @@ Admin:
 Sales:
 - Username: sales
 - Password: sales
+
+Manager:
+- Username: manager
+- Password: manager
