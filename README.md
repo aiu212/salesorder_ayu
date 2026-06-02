@@ -1,42 +1,57 @@
-# Sales Order System
+# Sales Order System - PT Maju Jaya
 
-Aplikasi Sales Order berbasis web menggunakan CodeIgniter 3.
+Sistem Sales Order berbasis web menggunakan CodeIgniter 3 untuk membantu proses pengelolaan penjualan pada PT Maju Jaya Elektronik.
 
-## Fitur
-- Login Multi User
-- Dashboard
-- Data Produk
-- Data Pelanggan
-- Data Sales
-- Transaksi Sales Order
-- Status Order
-- Laporan Penjualan
-- Cetak PDF
-- Filter Tanggal
+## Fitur Utama
+
+* Login Multi Role (Admin, Sales, Manager)
+* CRUD Produk
+* CRUD Pelanggan
+* CRUD Sales
+* Manajemen Sales Order
+* Status Order (Draft, Dikirim, Selesai, Dibatalkan)
+* Laporan Penjualan
+* Filter Laporan berdasarkan Periode
+* Cetak PDF Laporan
+* Dashboard Statistik & Grafik Penjualan
 
 ## Teknologi
-- PHP
-- CodeIgniter 3
-- Bootstrap
-- MySQL
-- SB Admin 2
 
-## Cara Menjalankan
-1. Import database `salesorder.sql`
-2. Pindahkan folder project ke `htdocs`
-3. Jalankan Apache & MySQL di XAMPP
-4. Akses:
-http://localhost/salesorder_ayu
+* PHP
+* CodeIgniter 3
+* MySQL
+* Bootstrap
+* Chart.js
 
-## Login
-Admin:
-- Username: admin
-- Password: admin
+## Cara Menjalankan Project
 
-Sales:
-- Username: sales
-- Password: sales
+1. Clone repository
+2. Pindahkan folder ke htdocs
+3. Import database `salesorder.sql`
+4. Jalankan XAMPP Apache & MySQL
+5. Akses melalui browser:
+   http://localhost/salesorder_ayu
 
-Manager:
-- Username: manager
-- Password: manager
+## Hak Akses
+
+### Admin
+
+* Mengelola produk
+* Mengelola pelanggan
+* Mengelola sales
+* Mengelola semua order
+* Melihat laporan
+
+### Sales
+
+* Membuat sales order
+* Melihat order milik sendiri
+
+### Manager
+
+* Melihat laporan penjualan
+
+## Database
+
+Database menggunakan file:
+`salesorder.sql`

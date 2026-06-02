@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cetak Laporan Penjualan</title>
+    <title>Laporan</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
             font-size: 12px;
             padding: 20px;
+            color: #000;
         }
 
         h2, h4 {
@@ -15,16 +16,27 @@
             margin: 0;
         }
 
-        .judul-kanan {
-            text-align: right;
-            font-size: 16px;
-            margin-bottom: 10px;
+        h2 {
+            font-size: 22px;
+        }
+
+        h4 {
+            font-size: 15px;
+            margin-top: 4px;
         }
 
         .info {
             text-align: center;
             margin-top: 10px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .periode {
+            text-align: center;
             margin-bottom: 25px;
+            font-weight: bold;
+            font-size: 13px;
         }
 
         table {
@@ -41,14 +53,24 @@
         th, td {
             padding: 8px;
             text-align: left;
+            white-space: nowrap;
         }
 
         th {
             background: #eee;
+            font-weight: bold;
         }
 
         .total {
             font-weight: bold;
+            background: #f2f2f2;
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
         }
     </style>
 </head>
@@ -61,6 +83,15 @@
     <div class="info">
         Sistem Sales Order Berbasis Web
     </div>
+
+    <?php if(!empty($tanggal_awal) && !empty($tanggal_akhir)): ?>
+        <div class="periode">
+            Periode:
+            <?= date('d-m-Y', strtotime($tanggal_awal)); ?>
+            s/d
+            <?= date('d-m-Y', strtotime($tanggal_akhir)); ?>
+        </div>
+    <?php endif; ?>
 
     <table>
         <thead>
@@ -76,7 +107,6 @@
         </thead>
 
         <tbody>
-
             <?php 
             $no = 1; 
             $grand_total = 0;
@@ -91,24 +121,16 @@
                 <td><?= $l->tanggal; ?></td>
                 <td><?= $l->nama_pelanggan; ?></td>
                 <td><?= $l->nama_sales; ?></td>
-                <td><?= ucfirst($l->status); ?></td>
-                <td>
-                    Rp <?= number_format($l->total,0,',','.'); ?>
-                </td>
+                <td><strong><?= ucfirst($l->status); ?></strong></td>
+                <td>Rp <?= number_format($l->total,0,',','.'); ?></td>
             </tr>
 
             <?php endforeach; ?>
 
             <tr>
-                <td colspan="6" class="total">
-                    Grand Total
-                </td>
-
-                <td class="total">
-                    Rp <?= number_format($grand_total,0,',','.'); ?>
-                </td>
+                <td colspan="6" class="total">Grand Total</td>
+                <td class="total">Rp <?= number_format($grand_total,0,',','.'); ?></td>
             </tr>
-
         </tbody>
     </table>
 
